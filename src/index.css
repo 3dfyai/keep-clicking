@@ -184,7 +184,7 @@ html,
   overflow: hidden;
 }
 
-/* Frame overlay on top with transparent center */
+/* Frame overlay on top with transparent center and flashing border */
 .frame-overlay {
   position: absolute;
   top: 0;
@@ -194,12 +194,42 @@ html,
   object-fit: fill;
   z-index: 502;
   pointer-events: none;
+  animation: flashingFrame 0.5s linear infinite;
+}
+
+@keyframes flashingFrame {
+  0% {
+    filter: drop-shadow(0 0 8px #ff0000) drop-shadow(0 0 15px #ff0000);
+  }
+
+  16% {
+    filter: drop-shadow(0 0 8px #ff00ff) drop-shadow(0 0 15px #ff00ff);
+  }
+
+  33% {
+    filter: drop-shadow(0 0 8px #0000ff) drop-shadow(0 0 15px #0000ff);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 8px #00ffff) drop-shadow(0 0 15px #00ffff);
+  }
+
+  66% {
+    filter: drop-shadow(0 0 8px #00ff00) drop-shadow(0 0 15px #00ff00);
+  }
+
+  83% {
+    filter: drop-shadow(0 0 8px #ffff00) drop-shadow(0 0 15px #ffff00);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 8px #ff0000) drop-shadow(0 0 15px #ff0000);
+  }
 }
 
 /* GIF container - centered behind the frame's transparent area */
 .landing-gif-container {
   position: absolute;
-  /* Mouse frame has thick borders (~18% on all sides) */
   top: 18%;
   left: 15%;
   right: 15%;
